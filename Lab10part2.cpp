@@ -42,29 +42,41 @@ int main(int argc, char **argv){
 
 	// The program will turn on the green LED, sleep for a while, then off, sleep, then on again, then off.
 	// You could use loops, if you wanted/needed.
-    *PBDR |= 0x20;	// ON: write a 1 to port B0. Mask all other bits.
-	usleep(100000);// How can you sleep for less than a second?
-    *PBDR &= ~0x20;	// OFF: write a 0 to port B0. Mask all other bits.
-    usleep(100000);
-    *PBDR |= 0x40;
-	usleep(100000);
-    *PBDR &= ~0x40;
-    usleep(100000);
-    *PBDR |= 0x80;	// ON: write a 1 to port B0. Mask all other bits.
-	usleep(100000);// How can you sleep for less than a second?
-    *PBDR &= ~0x80;	// OFF: write a 0 to port B0. Mask all other bits.
-    
-    usleep(100000);
-	*PBDR |= 0x80;	// ON: write a 1 to port B0. Mask all other bits.
-	usleep(100000);// How can you sleep for less than a second?
-	*PBDR &= ~0x80;	// OFF: write a 0 to port B0. Mask all other bits.
-	*PBDR |= 0x40;
-	usleep(100000);
-	*PBDR &= ~0x40;
-	usleep(100000);
-	*PBDR |= 0x20;	// ON: write a 1 to port B0. Mask all other bits.
-	usleep(100000);// How can you sleep for less than a second?
-	*PBDR &= ~0x20;	// OFF: write a 0 to port B0. Mask all other bits.
+   	
+	//flash the RED light
+	*PBDR |= 0x20;	//turns on the RED light
+	usleep(100000);// makes the program wait for less than a second
+    	*PBDR &= ~0x20;	//turns of the RED light
+    	usleep(100000);// makes the program wait for less than a second
+   
+	//flash the YELLOW light
+	*PBDR |= 0x40;//turns on the YELLOW light
+	usleep(100000);// makes the program wait for less than a second
+    	*PBDR &= ~0x40;//turns off the YELLOW light
+    	usleep(100000);// makes the program wait for less than a second
+   	
+	//flash the GREEN light
+	*PBDR |= 0x80;	//turns on the GREEN light
+	usleep(100000);// makes the program wait for less than a second
+   	 *PBDR &= ~0x80;//turns off the GREEN light
+    	 usleep(100000);// makes the program wait for less than a second
+	
+	//flash the GREEN light
+	*PBDR |= 0x80;	//turns on the GREEN light
+	usleep(100000);// makes the program wait for less than a second
+	*PBDR &= ~0x80;	//turns off the GREEN light
+	usleep(100000);// makes the program wait for less than a second
+	
+	//flash the YELLOW light
+	*PBDR |= 0x40;//turns on the YELLOW light
+	usleep(100000);// makes the program wait for less than a second
+	*PBDR &= ~0x40;//turns off the YELLOW light
+	usleep(100000);// makes the program wait for less than a second
+	
+	//flash the RED light
+	*PBDR |= 0x20;	//turns on the RED light
+	usleep(100000);// makes the program wait for less than a second
+	*PBDR &= ~0x20;	//turns off the RED light
 
 	// If you wanted to read the status of Port B0, how could you do it?
 
