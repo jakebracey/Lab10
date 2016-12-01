@@ -116,23 +116,23 @@ void mcMSG::printInfo(){ //prints morse
 		for(j=0; tran_msg[i][j]!='\0'; j++)
 		{
 			if(tran_msg[i][j]=='.'){
-				*PBDR |= 0x20;	// ON: write a 1 to port B0. Mask all other bits.
-				usleep(100000);// How can you sleep for less than a second?
-				*PBDR &= ~0x20;	// OFF: write a 0 to port B0. Mask all other bits.
-				usleep(100000);
+				*PBDR |= 0x20;	//turns on the RED light to indicate a dot
+				usleep(100000);// made the program wait for a little less than a second
+				*PBDR &= ~0x20;	//turns off the RED light
+				usleep(100000);// made the program wait for a little less than a second
 			}
 			else{
-				*PBDR |= 0x40;
-				usleep(100000);
-				*PBDR &= ~0x40;
-				usleep(100000);	
+				*PBDR |= 0x40;//turns on the YELLOW light to indicate a dash
+				usleep(100000);// made the program wait for a little less than a second
+				*PBDR &= ~0x40;//turns off the YELLOW light
+				usleep(100000);	// made the program wait for a little less than a second
 			}					
 		}
 		sleep(1);
 	}
-	*PBDR |= 0x80;	// ON: write a 1 to port B0. Mask all other bits.
-	sleep(1);// How can you sleep for less than a second?
-	*PBDR &= ~0x80;	// OFF: write a 0 to port B0. Mask all other bits.
+	*PBDR |= 0x80;	//turns on the GREEN light to indicate the end of the word
+	sleep(1);// makes the program leave the light on for a second
+	*PBDR &= ~0x80;	//turns off the GREEN light
 	cout << endl;
 }
 
